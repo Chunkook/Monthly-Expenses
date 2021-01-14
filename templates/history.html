@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="history-page">
+
+        <header>My Purchase History</header>
+
+        {% if stats %}
+            <table class="stats">
+                    <caption>All Time Spendings</caption>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Percentage</th>
+                    </tr>
+                    {% for item in stats %}
+                        <tr>
+                            <td>{{ item["category"] }}</td>
+                            <td>{{ "%.2f"|format(item["sum"]) }}</td>
+                            <td>{{ item["percentage"]|int }}%</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td>Total</td>
+                        <td>{{ "%.2f"|format(total_sum) }}</td>
+                        <td>100%</td>
+                    </tr>
+                </table>
+            {% endif %}
+
+
+        <hr class="hr">
+
+        <div id="custom-div">
+
+            <form action="/history" method="post">
+                <button type="submit" id="full-button" name="full" value="full">Full History</button>
+            </form>
+
+            <button id="custom-button" onclick="show_form();">Custom History</button>
+
+            <form id="custom-form" action="/history" method="post">
+                <div>
+                    <label for "from">Start date:</label>
+                    <input type="date" name="from">
+                </div>
+
+                <div>
+                    <label for "to">End date:</label>
+                    <input type="date" name="to">
+                </div>
+
+                <div>
+                    <label for "category">Optional:</label>
+                    <select name="category">
+                        <option value="" selected hidden>Category</option>
+                        {% for item in categories %}
+                            {% for key, value in item.items() %}
+                                <option value="{{ value }}">{{ value }}</option>
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    {% if purchases %}
+        <table class="purchases">
+            <caption>History of Purchases</caption>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            {% for item in purchases %}
+                <tr>
+                    {% for key, value in item.items() %}
+                        {% if key == "price" %}
+                            <td>{{ "%.2f"|format(value) }}</td>
+                        {% elif key == "name" and value == None %}
+                            <td style="font-style: italic;">None</td>
+                        {% elif key == "date" %}
+                            <td style="font-style: italic;">{{ value }}</td>
+                        {% else %}
+                            <td>{{ value }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            {% if total %}
+            <tr>
+                <td colspan="3">Total</td>
+                <td>{{ "%.2f"|format(total) }}</td>
+            </tr>
+            {% endif %}
+        </table>
+    {% endif %}
+
+    </div>
+
+    <script type="text/javascript">
+
+        // Whenever page is loaded, hide custom search form
+        // If user presses on Custom History, show form
+        let cform = document.querySelector("#custom-form");
+
+        window.onload=function() {
+            cform.style.display = "none";
+        }
+
+        function show_form() {
+            if (cform.style.display === "none") {
+                cform.style.display = "block";
+            }
+            else {
+                cform.style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}

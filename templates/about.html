@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+    <div class="about-page">
+        <h2>What is Money Planner?</h2>
+        <p>Money Planner is a web application created to assist its user the allocation, distribution and overall control of their income and expenditures.</p>
+        <h2>What are the function of Money Planner?</h2>
+        <h3>Monthly Income</h3>
+        <p>When a user first creates an account, the index page will invite them to enter their monthly income. If the user complies, a new database is created which stores that month's initially input sum and deducts every subsequent purchase the user adds until the end of the month. This way the user can keep an eye on their spendings and remaining disposable sum throughout the month. Furthermore, the application computes how much the user spends per category out of their total income. This aids the user in observing whether they are spending excessively on a category, or maybe they can allow themselves a bit leeway.</p>
+        <h3>Modify Categories</h3>
+        <p>While the application comes with six built-in categories for all users, anyone can add additional personal categories if they choose to do so, as well as delete them if necessary.</p>
+        <h3>Delete Purchase</h3>
+        <p>In case the user unintentionally adds a purchase, or maybe they have decided to return a purchase, the application allows them to delete it from their purchases during the month. In case the purchase was made when a monthly plan has been initiated, the price of the purchase is reimbursed to the user's disposable sum.</p>
+        <h3>History</h3>
+        <p>The application stores all purchases regardless of whether the user has initiated a monthly plan or not. This way they can access their all-time purchase history, or specify by date and/or category.</p>
+        <h2>What if a user has not initiated a monthly plan?</h2>
+        <p>While there are no particular benefits to use Money Planner without specifying one's monthly disposable sum, maybe the user's income is unstable and fluctuating. In such a case, they are still welcome to add and remove purchases, because they will still have access to viewing their purchase history, as well as observing the ratios of spending per category.</p>
+    </div>
+{% endblock %}

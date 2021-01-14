@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Modify Categories
+{% endblock %}
+
+{% block main %}
+    <div class="categories-page">
+
+        <header>Current Categories</header>
+
+        <ul>
+            {% for item in categories %}
+                <li>{{ item["category"] }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Form for adding categories -->
+        <form action="/modify" method="post">
+            <input type="text" name="category" placeholder="New Category">
+            <button name="add" type="submit">Create</button>
+        </form>
+
+        <!-- Form for deleting categories -->
+        <form action="/modify" method="post">
+            <select id="delcat" name="delcat">
+                <option value="" selected hidden>Category</option>
+                {% for item in categories %}
+                    <option value="{{ item["category"] }}">{{ item["category"] }}</option>
+                {% endfor %}
+            </select>
+            <button name="delete" type="submit">Delete</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+{% block main %}
+     <div class="index-page">
+
+         <header>Monthly Planner</header>
+
+        <form id="add" action="/" method="post">
+            <select name="category" required>
+                <option value="" selected disabled hidden>Category</option>
+                {% for item in categories %}
+                    {% for key, value in item.items() %}
+                        <option value="{{ value }}">{{ value }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+            <input type="text" name="product" placeholder="(Optional) product">
+            <input type="text" name="price" placeholder="Enter price" required>
+            <button type="submit">Add Purchase</button>
+        </form>
+
+        <hr class="hr">
+
+        <ul class="monthly">
+            <li>Today: {{ today }}</li>
+            <li>Last day: {{ last_day }}</li>
+            <li>Days left: {{ days }}</li>
+        </ul>
+
+        <ul class="monthly">
+            {% if plan %}
+                <li style="background-color: #6f8a9b; color: white;">Start: {{ "%.2f"|format(plan[0]["income"]) }}</li>
+                <li style="background-color: #6f8a9b; color: white;">Left: {{ "%.2f"|format(plan[0]["disposable"]) }}</li>
+            {% endif %}
+        </ul>
+
+        <hr class="hr">
+
+        {% if not plan %}
+            <div>
+                <form action="/" method="post">
+                    <input type="text" name="income" placeholder="This month's income">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        {% endif %}
+
+        {% if stats %}
+            <table class="stats">
+                <caption>Current Plan Spendings</caption>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Percentage</th>
+                </tr>
+                {% for item in stats %}
+                    <tr>
+                        <!-- display sum as float with 2 digits after decimal point -->
+                        <!-- display percentage as int, not as float -->
+                        <td>{{ item["category"] }}</td>
+                        <td>{{ "%.2f"|format(item["sum"]) }}</td>
+                        <td>{{ item["percentage"]|int }}%</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td>Total</td>
+                    <td>{{ "%.2f"|format(total_sum) }}</td>
+                    <td>100%</td>
+                </tr>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta charset="uft-8">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <title>Money Planner: {% block title %}{% endblock %}</title>
+
+    </head>
+    <body>
+
+        <nav>
+            {% if session.user_id %}
+            <!-- ADD routes when user is logged in -->
+            <ul class="navbar">
+                <li><a class="index" href="/">Index Page</a></li>
+                <li><a href="/modify">Modify Categories</a></li>
+                <li><a href="/delete">Delete Purchase</a></li>
+                <li><a href="/history">History</a></li>
+                <li><a href="/about">About</a></li>
+                <li style="float: right;"><a href="/logout">Logout</a></li>
+            </ul>
+            {% else %}
+            <!-- ADD routes when no user logged in -->
+            <ul class="navbar">
+                <li><a class="index" href="/register">Register</a></li>
+                <li style="float: right;"><a href="/login">Login</a></li>
+            </ul>
+            {% endif %}
+        </nav>
+        <div class="flash">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <!-- Do something with the message -->
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% if message %}
+                {{ message }}
+            {% endif %}
+        </div>
+        <br>
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+    </body>
+</html>

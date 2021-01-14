@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete
+{% endblock %}
+
+{% block main %}
+    <div class="delete-page">
+
+        <header>Current Month Purchases</header>
+
+        <form action="/delete" method="post" onsubmit="">
+            {% if purchases %}
+                <table id="delete">
+                    <caption>Press X in order to delete the respective purchase</caption>
+                    <tr>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                    {% for item in purchases %}
+                        <tr>
+                            <!-- loop.index indexes each iteration of a loop -->
+                            <!-- Do not include IDs of items -->
+                            <!-- format price to show 2 digits after decimal point -->
+                            <!-- Italicize missing purchases names -->
+                            <!-- After each table row add delete button which stores as value the item's ID -->
+                            <td>{{ loop.index }}</td>
+                            {% for key, value in item.items() %}
+                                {% if key == "id" %}{% continue %}{% endif %}
+                                {% if key == "price" %}
+                                    <td>{{ "%.2f"|format(value) }}</td>
+                                {% elif key == "name" and value == None %}
+                                    <td style="font-style: italic;">None</td>
+                                {% else %}
+                                    <td>{{ value }}</td>
+                                {% endif %}
+                            {% endfor %}
+                            <td><button class="delete-button" type="submit", name="delete", value={{ item["id"] }}>X</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

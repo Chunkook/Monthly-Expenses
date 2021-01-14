@@ -1,0 +1,349 @@
+body {
+    font-family: "Open Sans";
+}
+
+/* Flask flask message */
+.flash {
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: larger;
+    font-weight: bold;
+}
+
+h3 {
+    font-style: italic;
+    color: #716a57;
+}
+
+header {
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    height: 30px;
+}
+
+.hr {
+    margin: 30px 0px 10px 0px;
+    border-top: 3px solid #ccc;
+}
+
+.navbar {
+    list-style-type: none;    /* remove bullet points from links */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;    /* do not allow child element to overlow outside parent element */
+    background-color: #555;
+}
+
+.navbar li {
+    float: left;
+    border-right: 1px solid #eee;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 22px;
+    text-decoration: none;    /* remove bulletpoints from li */
+}
+
+/* Index and Register buttons */
+.index {
+    background-color: #1f6f8f;    /* Apply different color to 'index' and 'register' in navbar */
+}
+
+/* Mouse hover */
+a:hover, button:hover {
+    background-color: #999;
+}
+
+/* Register and Login forms */
+.user {
+    border: 6px solid #d1d1d1;
+    margin: 20px 300px 0px 300px;
+    padding: 20px 20px 20px 20px;
+}
+
+/* Applies only to register and login fields */
+.user input[type=text], input[type=password] {
+    width: 100%;
+    padding: 6px 6px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+/* All input fields */
+input[type=text] {
+    padding: 6px 6px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+input:placeholder-shown {
+    font-style: italic;    /* Italic placeholders */
+}
+
+button {
+    background-color: #1f6f8f;
+    color: white;
+    padding: 6px 15px;
+    margin: 4px 0px 0px 5px;
+    border: none;
+    cursor: pointer;
+    font-family: "Open Sans";
+}
+
+/* Applies to dropdown select options */
+select {
+    width: 160px;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    font-style: italic;
+}
+
+
+/********** ABOUT **********/
+.about-page {
+    border: 3px solid #ccc;
+    margin: 5px 60px 0px 60px;
+    padding: 5px 20px 5px 20px;
+    text-align: justify;
+    background-color: #f1f5f9;
+}
+
+
+/********** DELETE PURCHASE **********/
+.delete-page {
+    border: 3px solid #ccc;
+    background-color: #f1f5f9;
+    margin: 5px 60px 0px 60px;
+    padding: 10px 20px 20px 20px;
+}
+
+.delete-button {
+    background-color: #ad2d3b;
+}
+
+/* Purchases table */
+#delete {
+    margin: 20px 0;    /* Apply to only top-margin */
+    border-bottom: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 700px;
+}
+
+#delete caption {
+    text-align: left;
+    font-style: italic;
+}
+
+#delete td, #delete th {
+    padding: 4px 20px;
+}
+
+#delete th {
+    background-color: #37a;
+    text-align: left;
+    height: 30px;
+    color: white;
+}
+
+/* Applies to delete buttons */
+#delete, #delete td:last-child {
+    border: none;
+    background-color: #f1f5f9;
+}
+
+/* Applies to every other row */
+#delete tr:nth-child(even) {
+    background-color: #e2e2e2;
+}
+
+
+/********** CATEGORIES **********/
+.categories-page {
+    text-align: center;
+    border: 3px solid #ccc;
+    background-color: #f1f5f9;
+    margin: 5px 60px 0px 60px;
+    padding: 10px 20px 20px 20px;
+}
+
+.categories-page ul {
+    margin: 20px auto;
+    padding: 0;
+}
+
+.categories-page li {
+    width: 80px;
+    font-weight: bold;
+    color: white;
+    border: 2px solid #aaa;
+    margin: 5px;
+    padding: 5px 10px 5px 10px;
+    display: inline-block;
+    background-color: #6a7e9f;
+    cursor: default;
+}
+
+.categories-page form {
+    margin: 10px 0;
+}
+
+
+/********** HISTORY **********/
+.history-page {
+    overflow: hidden;
+    text-align: center;
+    border: 3px solid #ccc;
+    background-color: #f1f5f9;
+    margin: 5px 60px 0px 60px;
+    padding: 10px 20px 20px 20px;
+}
+
+.stats {
+    table-layout: fixed;
+    font-size: large;
+    width: 50%;
+    border-collapse: collapse;
+    border: 2px solid #ccc;
+    background-color: #ddd;
+    margin: 20px auto;    /* auto margin centers element inside parent div */
+}
+
+.stats caption, .purchases caption {
+    font-style: italic;
+    padding: 4px;
+}
+
+.stats th {
+    background-color: #6f8a9b;
+    padding: 5px 0 5px 7px;
+    text-align: left;
+    color: white;
+}
+
+.stats td {
+    text-align: left;
+    padding-left: 7px;
+}
+
+.stats tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.stats tr:last-child {
+    font-weight: bold;
+    background-color: #e1dac7;
+}
+
+#custom-div {
+    text-align: center;
+    width: 30%;
+    margin: auto;
+}
+
+#custom-div label {
+    font-style: italic;
+    font-weight: bold;
+}
+
+#custom-form {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #a2b3c4;
+    background-color: #f2efda;
+}
+
+#custom-div form, div {
+    padding: 5px;
+}
+
+#full-button {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+.purchases {
+    table-layout: fixed;
+    font-size: large;
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid #ccc;
+    background-color: #ddd;
+    margin: 20px auto;
+}
+
+.purchases th {
+    background-color: #c43e4f;
+    color: white;
+    padding: 5px 0 5px 7px;
+    text-align: left;
+}
+
+.purchases td {
+    text-align: left;
+    padding-left: 7px;
+}
+
+.purchases tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.purchases tr:last-child {
+    font-weight: bold;
+    background-color: #e1dac7;
+}
+
+
+/********** INDEX PAGE **********/
+.index-page {
+    overflow: hidden;
+    text-align: center;
+    border: 3px solid #ccc;
+    background-color: #f1f5f9;
+    margin: 5px 60px 0px 60px;
+    padding: 10px 20px 20px 20px;
+}
+
+#add {
+    border: 1px solid #ddd;
+    margin: 20px auto;
+    background-color: #beafb2;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.monthly {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+}
+
+.monthly li {
+    font-size: larger;
+    font-weight: bold;
+    color: black;
+    border: 1px solid #aaa;
+    border-radius: 25px;
+    padding: 15px;
+    margin: 0 5px;
+    display: inline-block;
+    background-color: #e1dac7;
+    cursor: default;
+}

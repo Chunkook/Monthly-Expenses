@@ -4,11 +4,11 @@ Monthly Expenses is a webapp used for tracking the user's expenses in order for 
 
 ## Codebase
 
-1) Server-side is based on Python's Flask Library;
+1) Server-side is based on Flask;
 
 2) Backend is a SQL database;
 
-3) Frontend is simply HTML with Jinja 2, CSS, Python and a little bit of JavaScript;
+3) Frontend is simply HTML, CSS, Python and a little bit of JavaScript;
 
 ## Video example
 `https://www.youtube.com/watch?v=ihzBaZ2GEqo`

@@ -15,4 +15,4 @@ Monthly Expenses is a webapp used for tracking the user's expenses in order for 
 
 ### Note
 
-Since this was my final project for CS50 originally coded in CS50's IDE, at the time I used CS50's library which made the implementation of the SQL database a bit easier albeit dependent on their IDE. In order for the webapp to work independently, some small parts of the code would have to be rewritten, probably using python's sqlite3 library.
+Since this was my final project for CS50 originally coded in CS50's IDE, at the time I used CS50's library which made the implementation of the SQL database a bit easier by providing pre-made methods to work with the sqlite3 objects in python.
